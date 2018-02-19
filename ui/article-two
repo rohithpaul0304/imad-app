@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title>
+            Article two|Rohith Paul
+        </title>
+    </head>
+    <body>
+        <div>
+            <a href="/">HOME</a>
+        </div>
+        <hr/>
+        <h3>
+            Article two
+        </h3>
+        <div>
+            February 19,2018
+        </div>
+        <div>
+            <p>
+                Tesla, Inc. (formerly Tesla Motors) is an American company that specializes in electric automotives, energy storage and solar panel manufacturing based in Palo Alto, California.
+                Founded in 2003, the company specializes in electric cars, lithium-ion battery energy storage, and residential photovoltaic panels (through the subsidiary company SolarCity).
+                The additional products Tesla sells include the Tesla Powerwall and Powerpack batteries, solar panels and solar roof tiles.
+            </p>
+        </div>
+    </body>
+</html>
