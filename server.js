@@ -5,8 +5,48 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+var articleOne={
+    title:'Article One|Rohith paul',
+    heading:'Article One',
+    date:'February 19,2018',
+    content:` <p>
+                SpaceX designs, manufactures and launches advanced rockets and spacecraft. The company was founded in 2002 to revolutionize space technology, with the ultimate goal of enabling people to live on other planets.
+            </p>` 
+    
+};
+function createTemplate(data){
+    var title=data.title;
+    var date=data.date;
+    var heading=data.heading;
+    var content=data.content;
+var htmlTemplate=`
+<html>
+<head>
+<title>
+${title}
+</title>
+</head>
+<body>
+<div>
+<a href="/">HOME</a>
+</div>
+<hr/>
+<h3>
+${heading}
+</h3>
+<div>
+${date}
+</div>
+<div>
+${content}
+</div>
+</body>
+</html>
+`;
+return htmlTemplate;
+}
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  res.send(createTemplate(articleOne));
 });
 app.get('/article-one', function(req, res){
    res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
