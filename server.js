@@ -94,7 +94,6 @@ var counter = 0;
 app.det('/counter', function (req, res){
     counter = counter + 1;
     res.send(counter.toString());
-    
 });
 app.get('/:articleName' , function(req ,res){
   var articleName = req.param.articleName;
