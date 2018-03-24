@@ -157,6 +157,29 @@ pool.query('INSERT INTO "user" (username, password) VALUES ($1, $2)', [username,
 });
 });
 
+app.post('/login', function (req, res) {
+ var username = req.body.username;
+var password = req.body.password;
+pool.query('SELECT * from "user" WHERE username = $1', [username], function (err, result){
+    if (err) {
+        res.status(500).send(err.toString());
+    } else {
+        if (result.rows.length === 0) {
+            res.send(403).send('No user');
+        } else {
+            //Match the password
+            var dbString = result.rows[0].password;
+            var salt = dbString.split('$')[2];
+            var hashedPassword = hash(password, salt);
+            if (hashedPassword === dbString) {
+                res.send('credentials correct');
+            } else {
+                res.send(403).send('No user');
+            }
+        }
+    }
+});   
+});
 // Do not change port, otherwise your app won't run on IMAD servers
 // Use 8080 only for local development if you already have apache running on 80
 
